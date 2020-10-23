@@ -24,4 +24,13 @@ export default function (app) {
             res.send(error);
         }
     });
+
+    app.post('/contact', function(req, res){
+        try {
+            userService.addNewContact(req.body);
+            res.status(201).json('User was added.');
+        } catch (error) {
+            res.status(409).json(error);
+        }
+    });
 }

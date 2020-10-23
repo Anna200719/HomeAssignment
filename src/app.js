@@ -3,8 +3,6 @@ import routes from "./routes/routes.js"
 
 var app = express();
 
-app.use(express.urlencoded());
-
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 

@@ -1,4 +1,4 @@
-import userServices from "../services/userServices.js";
+import userService from "../services/userService.js";
 
 export default function (app) {
 
@@ -11,7 +11,17 @@ export default function (app) {
     });
 
     app.get('/contacts', function(req, res){
-        const allContacts = userServices.getContacts();
+        const allContacts = userService.getContacts();
         res.send(JSON.stringify(allContacts));
+    });
+
+    app.get('/contacts/:name', function(req, res){
+        try {
+            const contact = userService.getContactByName(req.params.name);
+            res.send('Found contact: Name: ' + contact.name + 
+            ' ' + ', Role ' + contact.role + ', Phone: '  + contact.phone)
+        } catch (error) {
+            res.send(error);
+        }
     });
 }

@@ -6,8 +6,6 @@ Basic node.js server
 2. cd src/
 3. npm install
 4. npm start (starts nodejs server)
-5. npm test (optional, to run tests)
-
 
 Please open http://localhost:8000/ (your server is running on port 8000 and you can change it in app.js if you want)
 
